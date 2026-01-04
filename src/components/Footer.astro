@@ -1,0 +1,64 @@
+---
+import data from '../data/business-data.json';
+const year = new Date().getFullYear();
+const baseUrl = import.meta.env.BASE_URL;
+
+// Re-using our robust path helper
+const getPath = (path: string) => {
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+---
+
+<footer class="bg-white border-t border-slate-200 pt-16 pb-8">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="space-y-8">
+        <span class="text-2xl font-bold tracking-tight text-slate-900">{data.businessName}</span>
+        <p class="text-sm leading-6 text-slate-600 max-w-xs">
+          Building high-performance, AI-ready {data.siteType} sites in record time.
+        </p>
+        <div class="flex gap-x-6">
+          {data.socials.map((social) => (
+            <a href={social.url} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-600 text-sm transition-colors">
+              {social.platform}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div>
+          <h3 class="text-sm font-semibold leading-6 text-slate-900">Navigation</h3>
+          <ul role="list" class="mt-6 space-y-4">
+            {data.navigation.map((item) => (
+              <li>
+                <a 
+                  href={getPath(item.href)} 
+                  class="text-sm leading-6 text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold leading-6 text-slate-900">Contact</h3>
+          <ul role="list" class="mt-6 space-y-4 text-sm leading-6 text-slate-600">
+            <li>{data.contact.email}</li>
+            <li>{data.contact.phone}</li>
+            <li>{data.contact.address}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-16 border-t border-slate-900/5 pt-8 sm:mt-20 lg:mt-24">
+      <p class="text-xs leading-5 text-slate-500">
+        &copy; {year} {data.businessName}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

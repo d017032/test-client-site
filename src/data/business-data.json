@@ -1,0 +1,46 @@
+{
+    "businessName": "Agency Zero",
+    "siteType": "service",
+    "navigation": [
+     { "label": "Home", "href": "" },
+     { "label": "Services", "href": "services" },
+     { "label": "Contact", "href": "contact" }
+    ],
+    "cta": { 
+      "service": "Book Now", 
+      "shop": "Buy Now",
+      "portfolio": "View Work"
+    },
+    "contact": {
+      "email": "hello@agencyzero.com",
+      "phone": "+1 (555) 000-0000",
+      "address": "123 Tech Lane, Digital City"
+    },
+    "socials": [
+      { "platform": "Twitter", "url": "https://twitter.com" },
+      { "platform": "LinkedIn", "url": "https://linkedin.com" },
+      { "platform": "GitHub", "url": "https://github.com" }
+    ],
+    "testimonials": [
+      {
+        "name": "Alex Rivera",
+        "role": "CEO, TechFlow",
+        "quote": "This team delivered our site in record time. The performance is unmatched.",
+        "image": "https://i.pravatar.cc/150?u=alex"
+      },
+      {
+        "name": "Sarah Chen",
+        "role": "Founder, Bloom",
+        "quote": "The AI-driven approach they used for our shop simplified everything.",
+        "image": "https://i.pravatar.cc/150?u=sarah"
+      }
+    ],
+    "theme": {
+       "primary": "#2563eb", 
+       "primaryHover": "#1d4ed8",
+       "accent": "#eff6ff"
+    },
+    "meta": {
+       "description": "Professional AI-driven web development services for modern businesses. Get your static site live in hours."
+    }
+  }
