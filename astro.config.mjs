@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
+  trailingSlash: 'always', // This forces Astro to handle links consistently
   // site should be updated to your Netlify URL once you have it
   site: 'https://your-client-site.netlify.app',
   base: '/', 
