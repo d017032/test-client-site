@@ -11,6 +11,7 @@ export default defineConfig({
   // 2. Configure the Netlify adapter to stay out of the way of static forms
   adapter: netlify({
     edgeMiddleware: false,
+    cacheOnDemandPages: false
   }),
 
   integrations: [
