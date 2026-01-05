@@ -3,18 +3,26 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import netlify from '@astrojs/netlify';
 
+// https://astro.build/config
 export default defineConfig({
-  build: {
-    format: 'directory' // This ensures /success/index.html is created
-  },
-  trailingSlash: 'always', // This forces Astro to handle links consistently
-  // site should be updated to your Netlify URL once you have it
-  site: 'https://your-client-site.netlify.app',
-  base: '/', 
+  // 1. Force static output so Netlify's crawler can find the form tags
+  output: 'static',
+
+  // 2. Configure the Netlify adapter to stay out of the way of static forms
+  adapter: netlify({
+    edgeMiddleware: false,
+  }),
+
   integrations: [
-    tailwind({ applyBaseStyles: false }), 
+    tailwind(), 
     react()
   ],
-  output: 'static',
-  adapter: netlify(),
+
+  build: {
+    // 3. Ensures /contact becomes /contact/index.html (Netlify's preferred structure)
+    format: 'directory'
+  },
+
+  // 4. Matches your successPath logic in contact.astro
+  trailingSlash: 'always'
 });
