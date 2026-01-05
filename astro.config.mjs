@@ -4,6 +4,9 @@ import react from '@astrojs/react';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
+  build: {
+    format: 'directory' // This ensures /success/index.html is created
+  },
   trailingSlash: 'always', // This forces Astro to handle links consistently
   // site should be updated to your Netlify URL once you have it
   site: 'https://your-client-site.netlify.app',
